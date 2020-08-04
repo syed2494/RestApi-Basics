@@ -56,3 +56,20 @@ global class Testingapicallout {
         return Lc.ID;
     }
     }
+    
+    
+    
+    In postman ---
+    
+    "Salesforce Url"/services/apexrest/LeadCreate/
+    
+    
+    Go to Header and Give this values 
+    1)In Key                 In value
+    Authorization            Bearer "Accesstoken"
+    
+    
+   Type this value in  Body-- as a Json Format..
+    
+    {"First Name":"jim","Last Name":"jang","Company":"salesman"}
+    
