@@ -1,0 +1,26 @@
+--->create a Connected App in salesforce org.
+--->Go to Postman Tool.
+
+----To Get Access token ---follow the steps Below .
+
+-->You have to give this values first for Authorization..
+
+1) url :  https://login.salesforce.com/services/oauth2/token?
+2)grant_type = Password.
+3)client_id = "Consumer Key"
+4)client_secret = "Consumer Secret".
+5)username = "Salesforce Org Username"
+6)Password ="Reset my security token+Salesforce Login Org Password"
+
+in salesforce Org
+For Reset My security Token ---->Go to Settings --->click On Reset My security Token-->
+
+
+https://login.salesforce.com/services/oauth2/token?grant_type=password&client_id="Consumer Key"&client_secret="Consumer Secret"&username="Salesforce Org Username"&password="Salesforce Login Org Password+Reset my security token"
+
+keep Request as -->  Post
+Click Send Button On the  right side of the Top page---
+
+You will get Access Token ...Copy that Access Token ...
+
+
