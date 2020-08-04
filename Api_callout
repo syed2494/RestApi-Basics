@@ -1,0 +1,58 @@
+@RestResource(urlMapping = '/LeadCreate/')
+
+global class Testingapicallout {
+    
+    @HTTPPost
+    global static string doPost()
+    {
+        
+        string fieldValue;
+        string fieldName;
+        string fName;
+        string lName;
+        String comp;
+        
+        List<string> leadList = new string[3];
+        
+        RestRequest req =RestContext.request;
+        RestResponse res =RestContext.response;
+        
+        
+        System.debug('Param is :'+req.params);
+        System.debug('Param is :'+req.requestBody);
+        
+        String arr = req.requestBody.toString();
+        
+        JsonParser parser = Json.createParser(arr);
+        
+        while(parser.nextToken()!=null){
+            
+            if(parser.getCurrentToken()!=JsonToken.END_OBJECT){
+                
+                parser.nextValue();
+                
+                fieldName = parser.getCurrentName();
+                fieldValue = parser.getText();
+                
+                if(fieldName == 'First Name'){
+                    
+                    fName = parser.getText();
+                    
+                }
+                
+                else if(fieldName == 'Last Name'){
+                     lName = parser.getText();
+                }
+                else if(fieldName == 'Company') {
+                    
+                    comp = parser.getText();
+                }  
+            }
+        }
+        
+       Lead Lc =new Lead(FirstName=fName,LastName=lName,company=comp) ;
+        insert Lc;
+        
+        return Lc.ID;
+    }
+    }
